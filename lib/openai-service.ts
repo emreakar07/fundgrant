@@ -20,12 +20,11 @@ export async function enhanceContent(
   sectionInfo: { title: string; description: string },
   agentProfile: { name: string; tone: string; specialization: string }
 ): Promise<string> {
-  // TEST ONLY: Hardcoded API key - REPLACE IN PRODUCTION!
-  // const apiKey = process.env.OPENAI_API_KEY;
-  const apiKey = "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"; // REPLACE WITH YOUR ACTUAL API KEY FOR TESTING
+  // Get the API key from environment variables
+  const apiKey = process.env.OPENAI_API_KEY;
   
   if (!apiKey) {
-    throw new Error("OpenAI API key is not configured");
+    throw new Error("OpenAI API key is not configured. Please set OPENAI_API_KEY in your environment variables.");
   }
   
   try {
